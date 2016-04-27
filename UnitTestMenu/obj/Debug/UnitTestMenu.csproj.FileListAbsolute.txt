@@ -1,0 +1,9 @@
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\UnitTestMenu.dll
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\UnitTestMenu.pdb
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestMenu\obj\Debug\UnitTestMenu.dll
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestMenu\obj\Debug\UnitTestMenu.pdb
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\SchoolPort.exe
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\SchoolPort.pdb
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestMenu\obj\Debug\UnitTestMenu.csprojResolveAssemblyReference.cache

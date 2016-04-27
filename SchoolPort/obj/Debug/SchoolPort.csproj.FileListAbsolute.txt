@@ -1,0 +1,6 @@
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\SchoolPort\bin\Debug\SchoolPort.exe.config
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\SchoolPort\bin\Debug\SchoolPort.exe
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\SchoolPort\bin\Debug\SchoolPort.pdb
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\SchoolPort\obj\Debug\SchoolPort.csprojResolveAssemblyReference.cache
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\SchoolPort\obj\Debug\SchoolPort.exe
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\SchoolPort\obj\Debug\SchoolPort.pdb

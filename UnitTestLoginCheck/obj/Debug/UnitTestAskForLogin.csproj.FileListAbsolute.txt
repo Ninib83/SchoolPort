@@ -1,0 +1,9 @@
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\UnitTestLoginCheck.dll
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\UnitTestLoginCheck.pdb
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\SchoolPort.exe
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\SchoolPort.pdb
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestLoginCheck\obj\Debug\UnitTestAskForLogin.csprojResolveAssemblyReference.cache
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestLoginCheck\obj\Debug\UnitTestLoginCheck.dll
+c:\users\ninib\documents\visual studio 2015\Projects\SchoolPort\UnitTestLoginCheck\obj\Debug\UnitTestLoginCheck.pdb
