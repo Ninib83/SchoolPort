@@ -8,5 +8,9 @@ namespace SchoolPort
 {
     class Class
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public Student Student { get; set; }
+
     }
 }
