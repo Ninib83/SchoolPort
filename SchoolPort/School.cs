@@ -10,12 +10,12 @@ namespace SchoolPort
 {
     public class School
     {
-        //string[] adminData;
-        
-        //bool student = false;
         List<string> DataList = new List<string>();
         List<string[]> DataListArray = new List<string[]>();
         List<string[]> AdministratiorList = new List<string[]>();
+        List<string[]> TeacherList = new List<string[]>();
+        List<string[]> CourseList = new List<string[]>();
+        List<string[]> ClassList = new List<string[]>();
         List<string[]> StudentList = new List<string[]>();
         public void Start()
         {
@@ -44,15 +44,15 @@ namespace SchoolPort
                     }
                     else if (splitFirst[0] == "Teacher")
                     {
-
+                        TeacherList.Add(item.Split(','));
                     }
                     else if (splitFirst[0] == "Course")
                     {
-
+                        CourseList.Add(item.Split(','));
                     }
                     else if (splitFirst[0] == "Class")
                     {
-
+                        ClassList.Add(item.Split(','));
                     }
                     else if (splitFirst[0] == "Student")
                     {
@@ -130,23 +130,58 @@ namespace SchoolPort
             {
                 int x = 0;
                 Int32.TryParse(value, out x);
-                if (x != 0)
+                if (x > 0 && 5 > x )
                 {
-                    Menu(x);
+                    Console.Clear();
+                    RedirectMenu(x);
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Something went wrong");
+                    MenuDisplay();
                 }
             }
-            
+
             Console.Clear();
         }
-
-        public int Menu(int value)
+        public void Subject(List<string[]> list)
         {
-            int valuex = 0;
-            if (value < 5 && 0 < value)
+            var subjectName = list[0][0];
+            Console.WriteLine(subjectName);
+            for (int i = 1; i < list.Count; i++)
             {
-                valuex = value;
+                var testlist = list[i];
+                var joinlist = string.Join(" ", testlist); 
+                Console.WriteLine(joinlist);
             }
-            return valuex;
         }
+
+        public void RedirectMenu(int value)
+        {
+            if (value == 1)
+            {
+                Subject(TeacherList);
+            }
+            else if (value == 2)
+            {
+                Subject(CourseList);
+            }
+            else if (value == 3)
+            {
+                Subject(ClassList);
+            }
+            if (value == 4)
+            {
+                Subject(StudentList);
+            }
+            //int valuex = 0;
+            //if (value < 5 && 0 < value)
+            //{
+            //    valuex = value;
+            //}
+            //return valuex;
+        }
+
     }
 }
