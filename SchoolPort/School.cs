@@ -11,6 +11,7 @@ namespace SchoolPort
     public class School
     {
         List<string> DataList = new List<string>();
+        //List<HeadClass> HeadList = new List<HeadClass>();
         List<string[]> DataListArray = new List<string[]>();
         List<string[]> AdministratiorList = new List<string[]>();
         List<string[]> TeacherList = new List<string[]>();
@@ -26,13 +27,76 @@ namespace SchoolPort
         public void GetData()
         {
             string[] Data = File.ReadAllLines("Data.txt", Encoding.Default);
+            // = File.ReadAllLines("Data.txt", Encoding.Default);
             foreach (var item in Data)
             {
                 DataList.Add(item);
             }
         }
+        public void OverWriteData(int input)
+        {
+            string[] testList = new string[5];
+            var test = DataList;
+            //testList[0] = DataList[0];
+            //testList[1] = "Hej detta är något";
+            testList[4] = DataList[4];
+
+
+            int line_to_edit = input + 1;
+
+            string[] lines = File.ReadAllLines("Data.txt");
+
+            string lineToWrite = testList[4];
+
+            using (StreamWriter writer = new StreamWriter("Data.txt"))
+            {
+                for (int currentLine = 1; currentLine <= lines.Length; ++currentLine)
+                {
+                    if (currentLine == line_to_edit)
+                    {
+                        writer.WriteLine(lineToWrite);
+                    }
+                    else
+                    {
+                        writer.WriteLine(lines[currentLine - 1]);
+                    }
+                }
+            }
+        }
+        public void JoinData()
+        {
+            StringBuilder sb = new StringBuilder();
+            var teststing = StudentList[0][0];
+            sb.Append(teststing);
+            for (int i = 1; i < StudentList.Count; i++)
+            {
+                var result = string.Join(",", StudentList[i]);
+                sb.Append("|");
+                sb.Append(result);
+            }
+            //foreach (var item in StudentList)
+            //{
+            //    var result = string.Join(",", item);
+            //    sb.Append("|");
+            //    sb.Append(result);
+            //}
+            string joinString = sb.ToString();
+            DataList[4] = joinString;
+            //var result = string.Join(",", StudentList[1]);
+        }
         public void SplitData()
         {
+            //var testList = new List<Administrator>();
+            //List<Administrator> AdminList = new List<Administrator>();
+
+
+            //var test = new Administrator
+            //{
+            //    Id = 1,
+            //    Name = "Admin",
+            //    Password = "pass"
+            //};
+
             foreach (var firstItem in DataList)
             {
                 var splitFirst = firstItem.Split('|');
@@ -70,8 +134,8 @@ namespace SchoolPort
             //adminData = f;
             string[] adminList = new string[2];
             
-            adminList[0] = AdministratiorList[1][0];
-            adminList[1] = AdministratiorList[1][1];
+            adminList[0] = AdministratiorList[1][1];
+            adminList[1] = AdministratiorList[1][2];
             
 
             return adminList;
@@ -155,6 +219,39 @@ namespace SchoolPort
                 var joinlist = string.Join(" ", testlist); 
                 Console.WriteLine(joinlist);
             }
+            Console.WriteLine("User Input: ");
+            var userInput = Console.ReadLine();
+            CheckUserInput(userInput);
+
+        }
+        public void Create(List<string[]> list)
+        {
+            Console.Clear();
+            Console.WriteLine("Create a new ");
+            Console.WriteLine("Ex; 1,John,Doe,197265-8762,Class");
+            var input = Console.ReadLine();
+            var newInput = input.Split(',');
+            list.Add(new string[5]);
+            var listlength = list.Count();
+            list[listlength - 1] = newInput;
+            JoinData();
+            OverWriteData(4);
+        }
+
+        public void CheckUserInput(string userInput)
+        {
+            if (userInput == "Create")
+            {
+                Create(StudentList);
+            }
+            else if (userInput == "Edit")
+            {
+
+            }
+            else if (userInput == "Delete")
+            {
+
+            }
         }
 
         public void RedirectMenu(int value)
@@ -175,12 +272,6 @@ namespace SchoolPort
             {
                 Subject(StudentList);
             }
-            //int valuex = 0;
-            //if (value < 5 && 0 < value)
-            //{
-            //    valuex = value;
-            //}
-            //return valuex;
         }
 
     }

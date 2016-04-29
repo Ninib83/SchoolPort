@@ -15,10 +15,12 @@ namespace UnitTestCheckLogin
             string[] sum = { "Admin", "Lösen" };
 
             //act
+            school.GetData();
+            school.SplitData();
             var result = school.CheckLogin();
 
             //assert
-            Assert.AreEqual(sum, result);
+            CollectionAssert.AreEqual(sum, result);
         }
     }
 }

@@ -18,6 +18,9 @@ namespace UnitTestAskForLogin
 
             bool sum = true;
 
+            //act
+            school.GetData();
+            school.SplitData();
             bool result = school.AskForLogin(User, Pass);
 
             Assert.AreEqual(sum, result);

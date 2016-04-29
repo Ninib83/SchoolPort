@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace SchoolPort
 {
-    class Class
+    class Class : FakePerson
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public Student Student { get; set; }
-
+        public Class(int id, string name, Student[] student) :base(id, name)
+        {
+            Student = student;
+        }
+        public Student[] Student { get; set; }
     }
 }

@@ -1,1 +1,5 @@
-Admin,Lösen
+Administrator|Admin,Lösen
+Teacher
+Course
+Class
+Student|1,John,Doe,796523-1234,TestClass|2,John,Doe,872356-1234,TestClass
