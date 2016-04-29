@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestMenu", "UnitTestMen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestCheckLogin", "UnitTestCheckLogin\UnitTestCheckLogin.csproj", "{54A28C6C-DB79-44DE-8BDA-86B4C5081269}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestCreate", "UnitTestCreate\UnitTestCreate.csproj", "{081B8EEA-BAA6-4CFE-AF98-12672E06DC8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{54A28C6C-DB79-44DE-8BDA-86B4C5081269}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54A28C6C-DB79-44DE-8BDA-86B4C5081269}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54A28C6C-DB79-44DE-8BDA-86B4C5081269}.Release|Any CPU.Build.0 = Release|Any CPU
+		{081B8EEA-BAA6-4CFE-AF98-12672E06DC8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081B8EEA-BAA6-4CFE-AF98-12672E06DC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081B8EEA-BAA6-4CFE-AF98-12672E06DC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081B8EEA-BAA6-4CFE-AF98-12672E06DC8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

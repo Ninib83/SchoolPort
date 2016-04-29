@@ -46,8 +46,11 @@
     <Compile Include="Administrator.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="FakePerson.cs" />
+    <Compile Include="HeadClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealPerson.cs" />
     <Compile Include="School.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Teacher.cs" />

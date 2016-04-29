@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace SchoolPort
 {
-    class Student
+    class Student : RealPerson
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public Student(int id, string firstname, string lastname, int securityNr, Class x) : base(id, firstname, lastname)
+        {
+            SecurityNr = securityNr;
+            Class = x;
+        }
         public int SecurityNr { get; set; }
         public Class Class { get; set; }
     }

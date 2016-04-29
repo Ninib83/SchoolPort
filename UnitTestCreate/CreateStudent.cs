@@ -2,23 +2,22 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SchoolPort;
 
-namespace UnitTestMenu
+namespace UnitTestCreate
 {
     [TestClass]
-    public class UnitTestMenu
+    public class CreateStudent
     {
         [TestMethod]
         public void TestMethod1()
         {
             School school = new School();
+            //arrange
 
-            //Arreage
-            int value = 4;
-            int sum = 4;
 
-           // int result = school.RedirectMenu(value);
+            //act
+            ///var result = school.Create()
 
-            //Assert.AreEqual(sum, result);
+            //assert
         }
     }
 }

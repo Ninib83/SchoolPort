@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SchoolPort
 {
-    abstract class HeadClass
+    abstract class FakePerson : HeadClass
     {
-        public HeadClass(int id)
+        public FakePerson(int id, string name) :base(id)
         {
-            Id = id;
+            Name = name;
         }
-        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
