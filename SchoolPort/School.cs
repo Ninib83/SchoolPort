@@ -10,19 +10,71 @@ namespace SchoolPort
 {
     public class School
     {
-        string[] adminData;
-        bool loginCheck = false;
-        bool student = false;
+        //string[] adminData;
+        
+        //bool student = false;
+        List<string> DataList = new List<string>();
+        List<string[]> DataListArray = new List<string[]>();
+        List<string[]> AdministratiorList = new List<string[]>();
+        List<string[]> StudentList = new List<string[]>();
         public void Start()
         {
+            GetData();
+            SplitData();
             AskForLoginDisplay();
         }
-
-        public void CheckLogin()
+        public void GetData()
         {
             string[] Data = File.ReadAllLines("Data.txt", Encoding.Default);
-            var f = Data[0].Split(',');
-            adminData = f;
+            foreach (var item in Data)
+            {
+                DataList.Add(item);
+            }
+        }
+        public void SplitData()
+        {
+            foreach (var firstItem in DataList)
+            {
+                var splitFirst = firstItem.Split('|');
+                foreach (var item in splitFirst)
+                {
+                    if (splitFirst[0] == "Administrator")
+                    {
+                        AdministratiorList.Add(item.Split(','));
+                    }
+                    else if (splitFirst[0] == "Teacher")
+                    {
+
+                    }
+                    else if (splitFirst[0] == "Course")
+                    {
+
+                    }
+                    else if (splitFirst[0] == "Class")
+                    {
+
+                    }
+                    else if (splitFirst[0] == "Student")
+                    {
+                        StudentList.Add(item.Split(','));
+                    }
+                    
+                }
+            }
+        }
+
+        public string[] CheckLogin()
+        {
+            //string[] Data = File.ReadAllLines("Data.txt", Encoding.Default);
+            //var f = Data[0].Split(',');
+            //adminData = f;
+            string[] adminList = new string[2];
+            
+            adminList[0] = AdministratiorList[1][0];
+            adminList[1] = AdministratiorList[1][1];
+            
+
+            return adminList;
         }
 
         public void AskForLoginDisplay()
@@ -32,8 +84,8 @@ namespace SchoolPort
 
             Console.WriteLine("Lösenord:");
             var password = Console.ReadLine();
-            AskForLogin(username, password);
-            if(loginCheck == true)
+            var askForLoginBool = AskForLogin(username, password);
+            if(askForLoginBool == true)
             {
                 Console.Clear();
                 MenuDisplay();
@@ -48,17 +100,18 @@ namespace SchoolPort
 
         public bool AskForLogin(string user, string pass)
         {
-            CheckLogin();
+            bool loginBool = false;
+            var adminData = CheckLogin();
             if (adminData[0] == user && adminData[1] == pass)
             {
-                loginCheck = true;   
+                loginBool = true;   
             }
             else
             {
-                loginCheck = false;
+                loginBool = false;
             }
             
-            return loginCheck;
+            return loginBool;
         }
 
         private void MenuDisplay()
@@ -72,11 +125,15 @@ namespace SchoolPort
             Console.WriteLine("Välj ett nr!");
 
             var value = Console.ReadLine();
-            int x = 0;
-            Int32.TryParse(value, out x);
-            if (x != 0)
+            var isNumber = Regex.IsMatch(value, @"^\d+$");
+            if (isNumber != false)
             {
-                Menu(x);
+                int x = 0;
+                Int32.TryParse(value, out x);
+                if (x != 0)
+                {
+                    Menu(x);
+                }
             }
             
             Console.Clear();
@@ -85,10 +142,10 @@ namespace SchoolPort
         public int Menu(int value)
         {
             int valuex = 0;
-            if(value < 5 && 0 < value)
+            if (value < 5 && 0 < value)
             {
                 valuex = value;
-            } 
+            }
             return valuex;
         }
     }
