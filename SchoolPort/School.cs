@@ -11,7 +11,6 @@ namespace SchoolPort
     public class School
     {
         List<string> DataList = new List<string>();
-        //List<HeadClass> HeadList = new List<HeadClass>();
         List<string[]> DataListArray = new List<string[]>();
         List<string[]> AdministratiorList = new List<string[]>();
         List<string[]> TeacherList = new List<string[]>();
@@ -33,20 +32,20 @@ namespace SchoolPort
                 DataList.Add(item);
             }
         }
-        public void OverWriteData(int input)
+        public void OverWriteData(int inputId)
         {
             string[] testList = new string[5];
-            var test = DataList;
+            //var test = DataList;
             //testList[0] = DataList[0];
             //testList[1] = "Hej detta är något";
-            testList[4] = DataList[4];
+            testList[inputId] = DataList[inputId];
 
 
-            int line_to_edit = input + 1;
+            int line_to_edit = inputId + 1;
 
             string[] lines = File.ReadAllLines("Data.txt");
 
-            string lineToWrite = testList[4];
+            string lineToWrite = testList[inputId];
 
             using (StreamWriter writer = new StreamWriter("Data.txt"))
             {
@@ -63,14 +62,14 @@ namespace SchoolPort
                 }
             }
         }
-        public void JoinData()
+        public void JoinData(List<string[]> list, int inputId)
         {
             StringBuilder sb = new StringBuilder();
-            var teststing = StudentList[0][0];
+            var teststing = list[0][0];
             sb.Append(teststing);
-            for (int i = 1; i < StudentList.Count; i++)
+            for (int i = 1; i < list.Count; i++)
             {
-                var result = string.Join(",", StudentList[i]);
+                var result = string.Join(",", list[i]);
                 sb.Append("|");
                 sb.Append(result);
             }
@@ -81,22 +80,11 @@ namespace SchoolPort
             //    sb.Append(result);
             //}
             string joinString = sb.ToString();
-            DataList[4] = joinString;
+            DataList[inputId] = joinString;
             //var result = string.Join(",", StudentList[1]);
         }
         public void SplitData()
         {
-            //var testList = new List<Administrator>();
-            //List<Administrator> AdminList = new List<Administrator>();
-
-
-            //var test = new Administrator
-            //{
-            //    Id = 1,
-            //    Name = "Admin",
-            //    Password = "pass"
-            //};
-
             foreach (var firstItem in DataList)
             {
                 var splitFirst = firstItem.Split('|');
@@ -121,22 +109,16 @@ namespace SchoolPort
                     else if (splitFirst[0] == "Student")
                     {
                         StudentList.Add(item.Split(','));
-                    }
-                    
+                    } 
                 }
             }
         }
 
         public string[] CheckLogin()
         {
-            //string[] Data = File.ReadAllLines("Data.txt", Encoding.Default);
-            //var f = Data[0].Split(',');
-            //adminData = f;
-            string[] adminList = new string[2];
-            
+            string[] adminList = new string[2];            
             adminList[0] = AdministratiorList[1][1];
             adminList[1] = AdministratiorList[1][2];
-            
 
             return adminList;
         }
@@ -209,7 +191,7 @@ namespace SchoolPort
 
             Console.Clear();
         }
-        public void Subject(List<string[]> list)
+        public void Subject(List<string[]> list, int inputId)
         {
             var subjectName = list[0][0];
             Console.WriteLine(subjectName);
@@ -221,28 +203,68 @@ namespace SchoolPort
             }
             Console.WriteLine("User Input: ");
             var userInput = Console.ReadLine();
-            CheckUserInput(userInput);
+            CheckUserInput(userInput, inputId);
 
         }
-        public void Create(List<string[]> list)
+
+        public void CreateDisplay(List<string[]> list, int inputId)
         {
-            Console.Clear();
-            Console.WriteLine("Create a new ");
+            Console.WriteLine("Create a new");
             Console.WriteLine("Ex; 1,John,Doe,197265-8762,Class");
             var input = Console.ReadLine();
-            var newInput = input.Split(',');
-            list.Add(new string[5]);
-            var listlength = list.Count();
-            list[listlength - 1] = newInput;
-            JoinData();
-            OverWriteData(4);
+            var result = Create(list, input);
+            if (result == true)
+            {
+                JoinData(list, inputId);
+                OverWriteData(inputId);
+                Console.Clear();
+                Console.WriteLine("Item was successfully created");
+                Subject(list, inputId);
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Faild To Create");
+                Subject(list, inputId);
+            }
         }
 
-        public void CheckUserInput(string userInput)
+        public bool Create(List<string[]> list, string input)
+        {
+            bool createdItem = false;
+            var newInput = input.Split(',');
+            if (newInput.Length == 5)
+            {
+                foreach (var itemId in list)
+                {
+                    if (itemId[0] == newInput[0])
+                    {
+                        return createdItem;
+                    }
+                }
+
+                list.Add(new string[5]);
+                var listlength = list.Count();
+                list[listlength - 1] = newInput;
+                createdItem = true;
+
+                return createdItem;
+            } 
+
+            return createdItem;
+        }
+
+        public bool Delete(List<string[]> list, string input)
+        {
+            return false;
+        }
+
+        public void CheckUserInput(string userInput, int inputId)
         {
             if (userInput == "Create")
             {
-                Create(StudentList);
+                Console.Clear();
+                CreateDisplay(StudentList, inputId);
             }
             else if (userInput == "Edit")
             {
@@ -252,25 +274,30 @@ namespace SchoolPort
             {
 
             }
+            else
+            {
+                Console.WriteLine("You can only choose between | Create, Edit, Delete |");
+                MenuDisplay();   
+            }
         }
 
         public void RedirectMenu(int value)
         {
             if (value == 1)
             {
-                Subject(TeacherList);
+                Subject(TeacherList, value);
             }
             else if (value == 2)
             {
-                Subject(CourseList);
+                Subject(CourseList, value);
             }
             else if (value == 3)
             {
-                Subject(ClassList);
+                Subject(ClassList, value);
             }
             if (value == 4)
             {
-                Subject(StudentList);
+                Subject(StudentList, value);
             }
         }
 

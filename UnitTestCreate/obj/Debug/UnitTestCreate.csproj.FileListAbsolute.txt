@@ -1,0 +1,8 @@
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestCreate\bin\Debug\UnitTestCreate.dll
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestCreate\bin\Debug\UnitTestCreate.pdb
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestCreate\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestCreate\bin\Debug\SchoolPort.exe
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestCreate\bin\Debug\SchoolPort.pdb
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestCreate\obj\Debug\UnitTestCreate.csprojResolveAssemblyReference.cache
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestCreate\obj\Debug\UnitTestCreate.dll
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestCreate\obj\Debug\UnitTestCreate.pdb

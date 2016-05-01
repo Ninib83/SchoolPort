@@ -15,3 +15,11 @@ C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\bin
 C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\obj\Debug\UnitTestMenu.csprojResolveAssemblyReference.cache
 C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\obj\Debug\UnitTestMenu.dll
 C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\obj\Debug\UnitTestMenu.pdb
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\UnitTestMenu.dll
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\UnitTestMenu.pdb
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\SchoolPort.exe
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\bin\Debug\SchoolPort.pdb
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\obj\Debug\UnitTestMenu.csprojResolveAssemblyReference.cache
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\obj\Debug\UnitTestMenu.dll
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestMenu\obj\Debug\UnitTestMenu.pdb

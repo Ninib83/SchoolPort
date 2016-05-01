@@ -15,3 +15,11 @@ C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginChe
 C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\obj\Debug\UnitTestAskForLogin.csprojResolveAssemblyReference.cache
 C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\obj\Debug\UnitTestLoginCheck.dll
 C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\obj\Debug\UnitTestLoginCheck.pdb
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\UnitTestLoginCheck.dll
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\UnitTestLoginCheck.pdb
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\SchoolPort.exe
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\bin\Debug\SchoolPort.pdb
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\obj\Debug\UnitTestAskForLogin.csprojResolveAssemblyReference.cache
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\obj\Debug\UnitTestLoginCheck.dll
+C:\Users\larsson\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestLoginCheck\obj\Debug\UnitTestLoginCheck.pdb
