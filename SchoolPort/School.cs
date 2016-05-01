@@ -191,6 +191,15 @@ namespace SchoolPort
 
             Console.Clear();
         }
+
+        public void SubjectMenu(List<string[]> list, int inputId)
+        {
+            Subject(list, inputId);
+            Console.WriteLine("User Input: ");
+            var userInput = Console.ReadLine();
+            CheckUserInput(userInput, list, inputId);
+        }
+
         public void Subject(List<string[]> list, int inputId)
         {
             var subjectName = list[0][0];
@@ -201,10 +210,9 @@ namespace SchoolPort
                 var joinlist = string.Join(" ", testlist); 
                 Console.WriteLine(joinlist);
             }
-            Console.WriteLine("User Input: ");
-            var userInput = Console.ReadLine();
-            CheckUserInput(userInput, inputId);
-
+            //Console.WriteLine("User Input: ");
+            //var userInput = Console.ReadLine();
+            //CheckUserInput(userInput, list, inputId);
         }
 
         public void CreateDisplay(List<string[]> list, int inputId)
@@ -219,13 +227,13 @@ namespace SchoolPort
                 OverWriteData(inputId);
                 Console.Clear();
                 Console.WriteLine("Item was successfully created");
-                Subject(list, inputId);
+                SubjectMenu(list, inputId);
             }
             else
             {
                 Console.Clear();
                 Console.WriteLine("Faild To Create");
-                Subject(list, inputId);
+                SubjectMenu(list, inputId);
             }
         }
 
@@ -254,17 +262,26 @@ namespace SchoolPort
             return createdItem;
         }
 
+        public void DeleteDisplay(List<string[]> list, int inputId)
+        {
+            Subject(list, inputId);
+            Console.WriteLine("How to delete an item");
+            Console.WriteLine("Enter item Id");
+            var userInput = Console.ReadLine();
+            var result = Delete(list, userInput);
+        }
+
         public bool Delete(List<string[]> list, string input)
         {
             return false;
         }
 
-        public void CheckUserInput(string userInput, int inputId)
+        public void CheckUserInput(string userInput, List<string[]> list, int inputId)
         {
             if (userInput == "Create")
             {
                 Console.Clear();
-                CreateDisplay(StudentList, inputId);
+                CreateDisplay(list, inputId);
             }
             else if (userInput == "Edit")
             {
@@ -272,7 +289,8 @@ namespace SchoolPort
             }
             else if (userInput == "Delete")
             {
-
+                Console.Clear();
+                DeleteDisplay(list, inputId);
             }
             else
             {
@@ -285,19 +303,19 @@ namespace SchoolPort
         {
             if (value == 1)
             {
-                Subject(TeacherList, value);
+                SubjectMenu(TeacherList, value);
             }
             else if (value == 2)
             {
-                Subject(CourseList, value);
+                SubjectMenu(CourseList, value);
             }
             else if (value == 3)
             {
-                Subject(ClassList, value);
+                SubjectMenu(ClassList, value);
             }
             if (value == 4)
             {
-                Subject(StudentList, value);
+                SubjectMenu(StudentList, value);
             }
         }
 
