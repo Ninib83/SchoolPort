@@ -14,7 +14,7 @@ namespace UnitTestAskForLogin
 
             //Arrenge
             string User = "Admin";
-            string Pass = "Lösen";
+            string Pass = "Pass";
 
             bool sum = true;
 

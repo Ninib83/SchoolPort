@@ -11,13 +11,13 @@ namespace SchoolPort
     public class School
     {
         List<string> DataList = new List<string>();
-        //List<HeadClass> HeadList = new List<HeadClass>();
         List<string[]> DataListArray = new List<string[]>();
         List<string[]> AdministratiorList = new List<string[]>();
         List<string[]> TeacherList = new List<string[]>();
         List<string[]> CourseList = new List<string[]>();
         List<string[]> ClassList = new List<string[]>();
         List<string[]> StudentList = new List<string[]>();
+
         public void Start()
         {
             GetData();
@@ -27,26 +27,22 @@ namespace SchoolPort
         public void GetData()
         {
             string[] Data = File.ReadAllLines("Data.txt", Encoding.Default);
-            // = File.ReadAllLines("Data.txt", Encoding.Default);
+  
             foreach (var item in Data)
             {
                 DataList.Add(item);
             }
         }
-        public void OverWriteData(int input)
+        public void OverWriteData(int inputId)
         {
             string[] testList = new string[5];
-            var test = DataList;
-            //testList[0] = DataList[0];
-            //testList[1] = "Hej detta är något";
-            testList[4] = DataList[4];
+            testList[inputId] = DataList[inputId];
 
-
-            int line_to_edit = input + 1;
+            int line_to_edit = inputId + 1;
 
             string[] lines = File.ReadAllLines("Data.txt");
 
-            string lineToWrite = testList[4];
+            string lineToWrite = testList[inputId];
 
             using (StreamWriter writer = new StreamWriter("Data.txt"))
             {
@@ -63,14 +59,14 @@ namespace SchoolPort
                 }
             }
         }
-        public void JoinData()
+        public void JoinData(List<string[]> list, int inputId)
         {
             StringBuilder sb = new StringBuilder();
-            var teststing = StudentList[0][0];
+            var teststing = list[0][0];
             sb.Append(teststing);
-            for (int i = 1; i < StudentList.Count; i++)
+            for (int i = 1; i < list.Count; i++)
             {
-                var result = string.Join(",", StudentList[i]);
+                var result = string.Join(",", list[i]);
                 sb.Append("|");
                 sb.Append(result);
             }
@@ -81,22 +77,11 @@ namespace SchoolPort
             //    sb.Append(result);
             //}
             string joinString = sb.ToString();
-            DataList[4] = joinString;
+            DataList[inputId] = joinString;
             //var result = string.Join(",", StudentList[1]);
         }
         public void SplitData()
         {
-            //var testList = new List<Administrator>();
-            //List<Administrator> AdminList = new List<Administrator>();
-
-
-            //var test = new Administrator
-            //{
-            //    Id = 1,
-            //    Name = "Admin",
-            //    Password = "pass"
-            //};
-
             foreach (var firstItem in DataList)
             {
                 var splitFirst = firstItem.Split('|');
@@ -121,22 +106,16 @@ namespace SchoolPort
                     else if (splitFirst[0] == "Student")
                     {
                         StudentList.Add(item.Split(','));
-                    }
-                    
+                    } 
                 }
             }
         }
 
         public string[] CheckLogin()
         {
-            //string[] Data = File.ReadAllLines("Data.txt", Encoding.Default);
-            //var f = Data[0].Split(',');
-            //adminData = f;
-            string[] adminList = new string[2];
-            
+            string[] adminList = new string[2];            
             adminList[0] = AdministratiorList[1][1];
             adminList[1] = AdministratiorList[1][2];
-            
 
             return adminList;
         }
@@ -209,7 +188,16 @@ namespace SchoolPort
 
             Console.Clear();
         }
-        public void Subject(List<string[]> list)
+
+        public void SubjectMenu(List<string[]> list, int inputId)
+        {
+            Subject(list, inputId);
+            Console.WriteLine("User Input: ");
+            var userInput = Console.ReadLine();
+            CheckUserInput(userInput, list, inputId);
+        }
+
+        public void Subject(List<string[]> list, int inputId)
         {
             var subjectName = list[0][0];
             Console.WriteLine(subjectName);
@@ -219,30 +207,166 @@ namespace SchoolPort
                 var joinlist = string.Join(" ", testlist); 
                 Console.WriteLine(joinlist);
             }
-            Console.WriteLine("User Input: ");
-            var userInput = Console.ReadLine();
-            CheckUserInput(userInput);
-
+            //Console.WriteLine("User Input: ");
+            //var userInput = Console.ReadLine();
+            //CheckUserInput(userInput, list, inputId);
         }
-        public void Create(List<string[]> list)
+
+        public void CreateDisplay(List<string[]> list, int inputId)
         {
-            Console.Clear();
-            Console.WriteLine("Create a new ");
-            Console.WriteLine("Ex; 1,John,Doe,197265-8762,Class");
+            Console.WriteLine("Create a new");
+            if (list[0][0] == "Teacher")
+            {
+                Console.WriteLine("Ex; 1,John,Doe,Course");
+            }
+            if (list[0][0] == "Course")
+            {
+                Console.WriteLine("Ex; Id,Name,Teacher,Class,Start,End");
+            }
+            if (list[0][0] == "Class")
+            {
+                Console.WriteLine("Ex; 1,Name,Student");
+            }
+            if (list[0][0] == "Student")
+            {
+                Console.WriteLine("Ex; 1,John,Doe,197265-8762,Class");
+            }
+
             var input = Console.ReadLine();
-            var newInput = input.Split(',');
-            list.Add(new string[5]);
-            var listlength = list.Count();
-            list[listlength - 1] = newInput;
-            JoinData();
-            OverWriteData(4);
+            var result = Create(list, input);
+            if (result == true)
+            {
+                JoinData(list, inputId);
+                OverWriteData(inputId);
+                Console.Clear();
+                Console.WriteLine("Item was successfully created");
+                SubjectMenu(list, inputId);
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Faild To Create");
+                SubjectMenu(list, inputId);
+            }
         }
 
-        public void CheckUserInput(string userInput)
+        public bool Create(List<string[]> list, string input)
+        {
+            bool createdItem = false;
+            var newInput = input.Split(',');
+            var createObject = list[0][0];
+            var teacher = 4;
+            var course = 6;
+            var classroom = 3;
+            var student = 5;
+            int objectNumber = 0;
+            
+            if(createObject == "Teacher")
+            {
+                objectNumber = teacher;
+            }
+            else if (createObject == "Course")
+            {
+                objectNumber = course;
+            }
+            else if (createObject == "Class")
+            {
+                objectNumber = classroom;
+            }
+            else if (createObject == "Student")
+            {
+                objectNumber = student;
+            }
+            
+
+            if (objectNumber != 0)
+            {
+                if (newInput.Length == objectNumber)
+                {
+                    foreach (var itemId in list)
+                    {
+                        if (itemId[0] == newInput[0])
+                        {
+                            return createdItem;
+                        }
+                    }
+
+                    list.Add(new string[objectNumber]);
+                    var listlength = list.Count();
+                    list[listlength - 1] = newInput;
+                    createdItem = true;
+
+                    return createdItem;
+                }
+            }
+
+            return createdItem;
+        }
+
+        public void DeleteDisplay(List<string[]> list, int inputId)
+        {
+            Subject(list, inputId);
+            Console.WriteLine("How to delete an item");
+            Console.WriteLine("Enter item Id");
+            var userInput = Console.ReadLine();
+            var isNumber = Regex.IsMatch(userInput, @"^\d+$");
+            if (isNumber != false)
+            {
+                var result = Delete(list, userInput);
+                if (result != false)
+                {
+                    JoinData(list, inputId);
+                    OverWriteData(inputId);
+                    Console.Clear();
+                    Console.WriteLine("Item was deleted");
+                    DeleteDisplay(list, inputId);
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Something went wrong");
+                    DeleteDisplay(list, inputId);
+                }
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Something went wrong");
+                DeleteDisplay(list, inputId);
+            }
+            
+            //var isNumber = Regex.IsMatch(userInput, @"^\d+$");
+            //if (isNumber != false)
+            //{
+            //    int x = 0;
+            //    Int32.TryParse(userInput, out x);
+            //    var result = Delete(list, x);
+            //}
+        }
+
+        public bool Delete(List<string[]> list, string input)
+        {
+            var count = 0;
+            foreach (var item in list)
+            {
+                var itemId = item[0];
+                if (itemId == input)
+                {
+                    list.RemoveAt(count);
+
+                    return true;
+                }
+                count += 1;
+            }
+            return false;
+        }
+
+        public void CheckUserInput(string userInput, List<string[]> list, int inputId)
         {
             if (userInput == "Create")
             {
-                Create(StudentList);
+                Console.Clear();
+                CreateDisplay(list, inputId);
             }
             else if (userInput == "Edit")
             {
@@ -250,7 +374,13 @@ namespace SchoolPort
             }
             else if (userInput == "Delete")
             {
-
+                Console.Clear();
+                DeleteDisplay(list, inputId);
+            }
+            else
+            {
+                Console.WriteLine("You can only choose between | Create, Edit, Delete |");
+                MenuDisplay();   
             }
         }
 
@@ -258,19 +388,19 @@ namespace SchoolPort
         {
             if (value == 1)
             {
-                Subject(TeacherList);
+                SubjectMenu(TeacherList, value);
             }
             else if (value == 2)
             {
-                Subject(CourseList);
+                SubjectMenu(CourseList, value);
             }
             else if (value == 3)
             {
-                Subject(ClassList);
+                SubjectMenu(ClassList, value);
             }
             if (value == 4)
             {
-                Subject(StudentList);
+                SubjectMenu(StudentList, value);
             }
         }
 

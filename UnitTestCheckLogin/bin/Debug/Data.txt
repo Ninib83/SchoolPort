@@ -1,4 +1,4 @@
-Administrator|Admin,Lösen
+Administrator|1,Admin,Pass
 Teacher
 Course
 Class

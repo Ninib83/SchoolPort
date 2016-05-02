@@ -1,0 +1,8 @@
+C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestDelete\bin\Debug\UnitTestDelete.dll
+C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestDelete\bin\Debug\UnitTestDelete.pdb
+C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestDelete\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestDelete\bin\Debug\SchoolPort.exe
+C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestDelete\bin\Debug\SchoolPort.pdb
+C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestDelete\obj\Debug\UnitTestDelete.csprojResolveAssemblyReference.cache
+C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestDelete\obj\Debug\UnitTestDelete.dll
+C:\Users\kevin\Documents\Visual Studio 2015\Projects\SchoolPort\UnitTestDelete\obj\Debug\UnitTestDelete.pdb
