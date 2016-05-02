@@ -23,6 +23,7 @@ namespace UnitTestAskForLogin
             school.SplitData();
             bool result = school.AskForLogin(User, Pass);
 
+            //assert
             Assert.AreEqual(sum, result);
         }
     }
