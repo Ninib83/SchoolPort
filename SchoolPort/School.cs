@@ -17,6 +17,7 @@ namespace SchoolPort
         List<string[]> CourseList = new List<string[]>();
         List<string[]> ClassList = new List<string[]>();
         List<string[]> StudentList = new List<string[]>();
+
         public void Start()
         {
             GetData();
@@ -224,7 +225,7 @@ namespace SchoolPort
             }
             if (list[0][0] == "Class")
             {
-                //Console.WriteLine("Ex; 1,John,Doe,197265-8762,Class");
+                Console.WriteLine("Ex; 1,Name,Student");
             }
             if (list[0][0] == "Student")
             {
@@ -253,23 +254,51 @@ namespace SchoolPort
         {
             bool createdItem = false;
             var newInput = input.Split(',');
-            if (newInput.Length == 5)
+            var createObject = list[0][0];
+            var teacher = 4;
+            var course = 6;
+            var classroom = 3;
+            var student = 5;
+            int objectNumber = 0;
+            
+            if(createObject == "Teacher")
             {
-                foreach (var itemId in list)
+                objectNumber = teacher;
+            }
+            else if (createObject == "Course")
+            {
+                objectNumber = course;
+            }
+            else if (createObject == "Class")
+            {
+                objectNumber = classroom;
+            }
+            else if (createObject == "Student")
+            {
+                objectNumber = student;
+            }
+            
+
+            if (objectNumber != 0)
+            {
+                if (newInput.Length == objectNumber)
                 {
-                    if (itemId[0] == newInput[0])
+                    foreach (var itemId in list)
                     {
-                        return createdItem;
+                        if (itemId[0] == newInput[0])
+                        {
+                            return createdItem;
+                        }
                     }
+
+                    list.Add(new string[objectNumber]);
+                    var listlength = list.Count();
+                    list[listlength - 1] = newInput;
+                    createdItem = true;
+
+                    return createdItem;
                 }
-
-                list.Add(new string[5]);
-                var listlength = list.Count();
-                list[listlength - 1] = newInput;
-                createdItem = true;
-
-                return createdItem;
-            } 
+            }
 
             return createdItem;
         }

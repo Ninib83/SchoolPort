@@ -14,6 +14,7 @@ namespace UnitTestCreate
             School school = new School();
             //arrange
             List<string[]> list = new List<string[]>();
+            list.Add(new string[] { "Student" });
             string input = "1,teast,aes,aew2131";
             bool sum = false;
 
