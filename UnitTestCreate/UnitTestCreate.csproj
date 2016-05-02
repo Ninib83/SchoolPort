@@ -50,6 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CreateClassSuccess.cs" />
+    <Compile Include="CreateCourseSuccess.cs" />
     <Compile Include="CreateTeacherSuccess.cs" />
     <Compile Include="CreateStudentWithList.cs" />
     <Compile Include="CreateStudentFaild.cs" />
