@@ -1,5 +1,5 @@
-Administrator|1,Admin,L�sen
+Administrator|1,Admin,Losen
 Teacher
 Course
 Class
-Student|1,John,Doe,796523-1234,TestClass|2,John,Doe,872356-1234,TestClass|1,kaew,qweqwe,wqeqweq,qweqwe
+Student|1,John,Doe,796523-1234,TestClass|2,John,Doe,872356-1234,TestClass|1,kaew,qweqwe,wqeqweq,qweqwe|3,Ninib,Do,121313-12313,Class
