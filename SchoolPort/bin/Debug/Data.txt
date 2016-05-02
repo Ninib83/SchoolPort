@@ -2,4 +2,4 @@ Administrator|1,Admin,Pass
 Teacher
 Course
 Class
-Student|1,John,Doe,796523-1234,TestClass|2,John,Doe,872356-1234,TestClass|3,kaew,qweqwe,wqeqweq,qweqwe|4,John,Doe,123124-2643,TH4|5,John,Doe,124124-1511,TH 3
+Student|1,John,Doe,796523-1234,TestClass|2,John,Doe,872356-1234,TestClass|3,kaew,qweqwe,wqeqweq,qweqwe|4,John,Doe,123124-2643,TH4

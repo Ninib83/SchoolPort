@@ -35,11 +35,7 @@ namespace SchoolPort
         public void OverWriteData(int inputId)
         {
             string[] testList = new string[5];
-            //var test = DataList;
-            //testList[0] = DataList[0];
-            //testList[1] = "Hej detta är något";
             testList[inputId] = DataList[inputId];
-
 
             int line_to_edit = inputId + 1;
 
@@ -218,7 +214,23 @@ namespace SchoolPort
         public void CreateDisplay(List<string[]> list, int inputId)
         {
             Console.WriteLine("Create a new");
-            Console.WriteLine("Ex; 1,John,Doe,197265-8762,Class");
+            if (list[0][0] == "Teacher")
+            {
+                Console.WriteLine("Ex; 1,John,Doe,Course");
+            }
+            if (list[0][0] == "Course")
+            {
+                Console.WriteLine("Ex; Id,Name,Teacher,Class,Start,End");
+            }
+            if (list[0][0] == "Class")
+            {
+                //Console.WriteLine("Ex; 1,John,Doe,197265-8762,Class");
+            }
+            if (list[0][0] == "Student")
+            {
+                Console.WriteLine("Ex; 1,John,Doe,197265-8762,Class");
+            }
+
             var input = Console.ReadLine();
             var result = Create(list, input);
             if (result == true)
@@ -268,11 +280,55 @@ namespace SchoolPort
             Console.WriteLine("How to delete an item");
             Console.WriteLine("Enter item Id");
             var userInput = Console.ReadLine();
-            var result = Delete(list, userInput);
+            var isNumber = Regex.IsMatch(userInput, @"^\d+$");
+            if (isNumber != false)
+            {
+                var result = Delete(list, userInput);
+                if (result != false)
+                {
+                    JoinData(list, inputId);
+                    OverWriteData(inputId);
+                    Console.Clear();
+                    Console.WriteLine("Item was deleted");
+                    DeleteDisplay(list, inputId);
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Something went wrong");
+                    DeleteDisplay(list, inputId);
+                }
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Something went wrong");
+                DeleteDisplay(list, inputId);
+            }
+            
+            //var isNumber = Regex.IsMatch(userInput, @"^\d+$");
+            //if (isNumber != false)
+            //{
+            //    int x = 0;
+            //    Int32.TryParse(userInput, out x);
+            //    var result = Delete(list, x);
+            //}
         }
 
         public bool Delete(List<string[]> list, string input)
         {
+            var count = 0;
+            foreach (var item in list)
+            {
+                var itemId = item[0];
+                if (itemId == input)
+                {
+                    list.RemoveAt(count);
+
+                    return true;
+                }
+                count += 1;
+            }
             return false;
         }
 
