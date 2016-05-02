@@ -12,7 +12,7 @@ namespace UnitTestCheckLogin
         {
             School school = new School();
             //arrange
-            string[] sum = { "Admin", "Lösen" };
+            string[] sum = { "Admin", "Pass" };
 
             //act
             school.GetData();

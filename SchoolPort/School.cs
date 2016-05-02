@@ -26,7 +26,7 @@ namespace SchoolPort
         public void GetData()
         {
             string[] Data = File.ReadAllLines("Data.txt", Encoding.Default);
-            // = File.ReadAllLines("Data.txt", Encoding.Default);
+  
             foreach (var item in Data)
             {
                 DataList.Add(item);
